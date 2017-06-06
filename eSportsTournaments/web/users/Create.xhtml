@@ -23,6 +23,7 @@
                     <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}"/>
                     <h:outputLabel value="#{bundle.CreateUsersLabel_level}" for="level" />
                     <h:inputText id="level" value="#{usersController.selected.level}" title="#{bundle.CreateUsersTitle_level}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_level}"/>
+                    <h:outputLabel value="Hola" for="" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{usersController.create}" value="#{bundle.CreateUsersSaveLink}" />
