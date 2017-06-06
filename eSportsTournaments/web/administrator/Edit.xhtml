@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdministratorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAdministratorLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{administratorController.selected.id}" title="#{bundle.EditAdministratorTitle_id}" required="true" requiredMessage="#{bundle.EditAdministratorRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditAdministratorLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{administratorController.selected.name}" title="#{bundle.EditAdministratorTitle_name}" required="true" requiredMessage="#{bundle.EditAdministratorRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditAdministratorLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{administratorController.selected.lastName}" title="#{bundle.EditAdministratorTitle_lastName}" required="true" requiredMessage="#{bundle.EditAdministratorRequiredMessage_lastName}"/>
+                    <h:outputLabel value="#{bundle.EditAdministratorLabel_secondLastName}" for="secondLastName" />
+                    <h:inputText id="secondLastName" value="#{administratorController.selected.secondLastName}" title="#{bundle.EditAdministratorTitle_secondLastName}" required="true" requiredMessage="#{bundle.EditAdministratorRequiredMessage_secondLastName}"/>
+                    <h:outputLabel value="#{bundle.EditAdministratorLabel_idUser}" for="idUser" />
+                    <h:selectOneMenu id="idUser" value="#{administratorController.selected.idUser}" title="#{bundle.EditAdministratorTitle_idUser}" required="true" requiredMessage="#{bundle.EditAdministratorRequiredMessage_idUser}">
+                        <f:selectItems value="#{usersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{administratorController.update}" value="#{bundle.EditAdministratorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAdministratorViewLink}"/>
+                <br />
+                <h:commandLink action="#{administratorController.prepareList}" value="#{bundle.EditAdministratorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAdministratorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
